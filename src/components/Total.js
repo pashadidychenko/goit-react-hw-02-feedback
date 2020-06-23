@@ -1,7 +1,7 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, Component } from 'react';
 import PropTypes from 'prop-types';
 
-export class TotalCounter extends React.Component {
+export class TotalCounter extends Component {
   render() {
     let goodFeedback = Math.round(this.props.good / (this.props.good + this.props.bad) / 0.01);
     return (

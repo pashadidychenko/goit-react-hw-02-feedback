@@ -1,6 +1,6 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, Component } from 'react';
 
-export class Statistic extends React.Component {
+export class Statistic extends Component {
   render() {
     return (
       <Fragment>

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Title, ButtonGood, ButtonNeutral, ButtonBad } from './components/Button.js';
+import { Button } from './components/Button.js';
+import { Title } from './components/Title.js';
 import { Statistic } from './components/Statistic.js';
 import { TotalCounter } from './components/Total.js';
 import { Notification } from './components/Notification.js';
@@ -13,16 +14,16 @@ class App extends React.Component {
     bad: 0,
   };
 
-  goodFeedback = () => {
-    this.setState(state => ({ good: state.good + 1 }));
-  };
-
-  neutralFeedback = () => {
-    this.setState(state => ({ neutral: state.neutral + 1 }));
-  };
-
-  badFeedback = () => {
-    this.setState(state => ({ bad: state.bad + 1 }));
+  addFeedback = el => {
+    if (el === 'good') {
+      this.setState(state => ({ good: state.good + 1 }));
+    }
+    if (el === 'neutral') {
+      this.setState(state => ({ neutral: state.neutral + 1 }));
+    }
+    if (el === 'bad') {
+      this.setState(state => ({ bad: state.bad + 1 }));
+    }
   };
 
   render() {
@@ -31,9 +32,14 @@ class App extends React.Component {
       <Container>
         <Title />
         <div>
-          <ButtonGood onGood={this.goodFeedback} />
-          <ButtonNeutral onNeutral={this.neutralFeedback} />
-          <ButtonBad onBad={this.badFeedback} />
+          <Button data="good" message="Добре" addFeedback={this.addFeedback} color="primary" />
+          <Button
+            data="neutral"
+            message="Нейтрально"
+            addFeedback={this.addFeedback}
+            color="default"
+          />
+          <Button data="bad" message="Погано" addFeedback={this.addFeedback} color="secondary" />
         </div>
         {good > 0 || neutral > 0 || bad > 0 ? (
           <div>
