@@ -14,15 +14,15 @@ class App extends React.Component {
   };
 
   goodFeedback = () => {
-    this.setState(state => ({ good: state.good++ }));
+    this.setState(state => ({ good: state.good + 1 }));
   };
 
   neutralFeedback = () => {
-    this.setState(state => ({ neutral: state.neutral++ }));
+    this.setState(state => ({ neutral: state.neutral + 1 }));
   };
 
   badFeedback = () => {
-    this.setState(state => ({ bad: state.bad++ }));
+    this.setState(state => ({ bad: state.bad + 1 }));
   };
 
   render() {
