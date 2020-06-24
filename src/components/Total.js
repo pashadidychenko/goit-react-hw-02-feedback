@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 
 export class TotalCounter extends Component {
   render() {
-    let goodFeedback = Math.round(this.props.good / (this.props.good + this.props.bad) / 0.01);
+    let goodFeedback = Math.round(
+      this.props.good / (this.props.good + this.props.bad + 0.001) / 0.01,
+    );
     return (
       <Fragment>
         <h3>
