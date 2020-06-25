@@ -1,9 +1,9 @@
 import React from 'react';
-import { Button } from './components/Button.js';
-import { Title } from './components/Title.js';
-import { Statistic } from './components/Statistic.js';
-import { TotalCounter } from './components/Total.js';
-import { Notification } from './components/Notification.js';
+import Button from './components/Button.js';
+import Title from './components/Title.js';
+import Statistic from './components/Statistic.js';
+import TotalCounter from './components/Total.js';
+import Notification from './components/Notification.js';
 import Container from '@material-ui/core/Container';
 import PropTypes from 'prop-types';
 

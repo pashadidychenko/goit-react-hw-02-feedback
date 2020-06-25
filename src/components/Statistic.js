@@ -1,14 +1,15 @@
-import React, { Fragment, Component } from 'react';
+import React, { Fragment } from 'react';
 
-export class Statistic extends Component {
-  render() {
-    return (
-      <Fragment>
-        <h2>Статистика</h2>
-        <h3>Добре: {this.props.good}</h3>
-        <h3>Нейтрально: {this.props.neutral}</h3>
-        <h3>Погано: {this.props.bad}</h3>
-      </Fragment>
-    );
-  }
-}
+const Statistic = props => {
+  const { good, neutral, bad } = props;
+  return (
+    <Fragment>
+      <h2>Статистика</h2>
+      <h3>Добре: {good}</h3>
+      <h3>Нейтрально: {neutral}</h3>
+      <h3>Погано: {bad}</h3>
+    </Fragment>
+  );
+};
+
+export default Statistic;
