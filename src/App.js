@@ -32,14 +32,27 @@ class App extends React.Component {
       <Container>
         <Title />
         <div>
-          <Button data="good" message="Добре" addFeedback={this.addFeedback} color="primary" />
           <Button
+            type="button"
+            data="good"
+            message="Добре"
+            addFeedback={this.addFeedback}
+            color="primary"
+          />
+          <Button
+            type="button"
             data="neutral"
             message="Нейтрально"
             addFeedback={this.addFeedback}
             color="default"
           />
-          <Button data="bad" message="Погано" addFeedback={this.addFeedback} color="secondary" />
+          <Button
+            type="button"
+            data="bad"
+            message="Погано"
+            addFeedback={this.addFeedback}
+            color="secondary"
+          />
         </div>
         {good > 0 || neutral > 0 || bad > 0 ? (
           <div>
