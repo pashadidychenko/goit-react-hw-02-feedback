@@ -15,15 +15,7 @@ class App extends React.Component {
   };
 
   addFeedback = el => {
-    if (el === 'good') {
-      this.setState(state => ({ good: state.good + 1 }));
-    }
-    if (el === 'neutral') {
-      this.setState(state => ({ neutral: state.neutral + 1 }));
-    }
-    if (el === 'bad') {
-      this.setState(state => ({ bad: state.bad + 1 }));
-    }
+    this.setState(state => ({ [el]: state[el] + 1 }));
   };
 
   render() {
