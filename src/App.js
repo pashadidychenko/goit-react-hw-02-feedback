@@ -1,6 +1,9 @@
 import React from 'react';
 import Section from './components/Section.js';
 import Container from '@material-ui/core/Container';
+import Statistic from './components/Statistic';
+import FeedbackOptions from './components/FeedbackOptions';
+import Notification from './components/Notification';
 
 class App extends React.Component {
   state = {
@@ -9,7 +12,7 @@ class App extends React.Component {
     bad: 0,
   };
 
-  addFeedback = el => {
+  onLeaveFeedback = el => {
     this.setState(state => ({ [el]: state[el] + 1 }));
   };
 
@@ -27,15 +30,27 @@ class App extends React.Component {
     const { good, neutral, bad } = this.state;
     return (
       <Container>
-        <Section
-          title="Будь-ласка залиште Ваш відгук"
-          good={good}
-          neutral={neutral}
-          bad={bad}
-          total={this.countTotalFeedback}
-          positivePercentage={this.countPositiveFeedbackPercentage}
-          addFeedback={this.addFeedback}
-        />
+        <Section title="Будь-ласка залиште Ваш відгук">
+          <FeedbackOptions
+            onLeaveFeedback={this.onLeaveFeedback}
+            options={[
+              { feedbackType: 'good', feedbackTitle: 'Добре', color: 'primary' },
+              { feedbackType: 'neutral', feedbackTitle: 'Нейтрально', color: 'default' },
+              { feedbackType: 'bad', feedbackTitle: 'Погано', color: 'secondary' },
+            ]}
+          />
+          {good > 0 || neutral > 0 || bad > 0 ? (
+            <Statistic
+              good={good}
+              neutral={neutral}
+              bad={bad}
+              total={this.countTotalFeedback}
+              positivePercentage={this.countPositiveFeedbackPercentage}
+            />
+          ) : (
+            <Notification message="Відгуки відсутні" />
+          )}
+        </Section>
       </Container>
     );
   }

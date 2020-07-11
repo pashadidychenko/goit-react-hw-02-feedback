@@ -1,18 +1,20 @@
 import React from 'react';
 import MaterialButton from '@material-ui/core/Button';
+import { v4 as uuidv4 } from 'uuid';
 
-const FeedbackOptions = ({ addFeedback }) => {
+const FeedbackOptions = ({ onLeaveFeedback, options }) => {
   return (
     <>
-      <MaterialButton type="button" color="primary" onClick={() => addFeedback('good')}>
-        Добре
-      </MaterialButton>
-      <MaterialButton type="button" color="default" onClick={() => addFeedback('neutral')}>
-        Нейтрально
-      </MaterialButton>
-      <MaterialButton type="button" color="secondary" onClick={() => addFeedback('bad')}>
-        Погано
-      </MaterialButton>
+      {options.map(key => (
+        <MaterialButton
+          type="button"
+          color={key.color}
+          key={uuidv4()}
+          onClick={() => onLeaveFeedback(key.feedbackType)}
+        >
+          {key.feedbackTitle}
+        </MaterialButton>
+      ))}
     </>
   );
 };

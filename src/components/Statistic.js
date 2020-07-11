@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
 
-const Statistic = ({ dataProps }) => {
-  const { good, neutral, bad, total, positivePercentage } = dataProps;
+const Statistic = ({ good, neutral, bad, total, positivePercentage }) => {
   return (
     <Fragment>
       <h2>Статистика</h2>
