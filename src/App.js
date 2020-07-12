@@ -33,12 +33,10 @@ class App extends React.Component {
         <Section title="Будь-ласка залиште Ваш відгук">
           <FeedbackOptions
             onLeaveFeedback={this.onLeaveFeedback}
-            options={[
-              { feedbackType: 'good', feedbackTitle: 'Добре', color: 'primary' },
-              { feedbackType: 'neutral', feedbackTitle: 'Нейтрально', color: 'default' },
-              { feedbackType: 'bad', feedbackTitle: 'Погано', color: 'secondary' },
-            ]}
+            options={[Object.keys(this.state)]}
           />
+        </Section>
+        <Section title="Статистика">
           {good > 0 || neutral > 0 || bad > 0 ? (
             <Statistic
               good={good}
